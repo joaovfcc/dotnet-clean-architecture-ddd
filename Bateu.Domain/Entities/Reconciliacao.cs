@@ -3,6 +3,9 @@ using Bateu.Domain.Enums;
 
 namespace Bateu.Domain.Entities;
 
+/// <summary>
+/// Representa um processo de conciliação entre extratos bancários e sistema contábil
+/// </summary>
 public class Reconciliacao : BaseEntity
 {
     public string UserId { get; private set; }
@@ -22,12 +25,12 @@ public class Reconciliacao : BaseEntity
 
     //Relacionamentos
     public ICollection<Transacao> Transacoes { get; private set; }
-    public ICollection<ResultadoConciliacao> ResultadosConciliacao { get; private set; }
+    public ICollection<ResultadoReconciliacao> ResultadosConciliacao { get; private set; }
 
     private Reconciliacao()
     {
         Transacoes = new List<Transacao>();
-        ResultadosConciliacao = new List<ResultadoConciliacao>();
+        ResultadosConciliacao = new List<ResultadoReconciliacao>();
     }
 
     public Reconciliacao(string userId) : this()
